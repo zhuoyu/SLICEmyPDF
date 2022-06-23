@@ -22,7 +22,11 @@ The following Setup Instructions work with Windows.
 
 ### Setup Instructions
 
-1. Create the environment. There are two ways to do so. One method is to run the following commends in the Command prompt as Administrator 
+1. Create the environment. 
+
+There are two ways to do so. 
+
+One method is to run the following commends in the Command prompt as Administrator 
 
 ```
 conda env create -f environment.yml
@@ -46,7 +50,9 @@ python -m ipykernel install --name=conda-slicemypdf
 ```
 
 Note 1: geopandas must be installed with conda, otherwise some dependencies will not be installed automatically and it's hard to install all its dependencies manually.
+
 Note 2: wand must be installed with pip, otherwise there will be conflicts and the installation will fail. 
+
 Note 3: It's better to install packages one by one.
 
 In the second method, after finishing all these steps, copy all folders and files in the SLICEmyPDF/slicemypdf folder in this repo to your environment folder.
@@ -62,7 +68,9 @@ The binary release for Windows can be find here: https://ghostscript.com/release
  You can download the binary release from the following link: https://imagemagick.org/script/download.php#windows
  
  Note 1: Double check your Python runtime, and ensure the architectures match. A 32-bit Python runtime can not load a 64-bit dynamic library.
+ 
  Note 2: During the installation you have to check Install development headers and libraries for C and C++ to make Wand able to link to it.
+ 
  Note 3: After the installation, you have to set MAGICK_HOME environment variable to the path of ImageMagick (e.g. C:\Program Files\ImageMagick-7.1.0-Q16-HDRI).
 
 4. Install Poppler
