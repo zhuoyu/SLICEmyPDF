@@ -18,8 +18,12 @@ from wand.drawing import Drawing
 from wand.color import Color
 
 regex = re.compile(r"[^0-9$()]")
-settings = yaml.safe_load(open(r"settings.yaml"))
+# settings = yaml.safe_load(open(r"settings.yaml"))
 
+# the following three lines are added to find the correct root of the file 
+import os
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__)) # This is the Project Root
+settings = yaml.safe_load(open(os.path.join(ROOT_DIR, 'settings.yaml')))
 
 class Extractor(object):
     """
@@ -52,6 +56,9 @@ class Extractor(object):
                 **kwargs,
                 ):
         self.pdf_loc = pdf_loc
+        # two lines are added to find the correct path of the file
+        if self.pdf_loc.lower().startswith('./'):
+            self.pdf_loc = os.path.join(ROOT_DIR, self.pdf_loc)        
         self.page = page
         self._validate_input()
         self.dist_threshold = dist_threshold
@@ -100,6 +107,10 @@ class Extractor(object):
         Input : Object
         Output : Image
         """
+        # two lines are added to find the correct path of the file
+        if file_name.lower().startswith('./'):
+            file_name = os.path.join(ROOT_DIR, file_name)          
+        
         img = WImage(filename=self.pdf_loc+"["+str(self.page - 1)+"]", resolution=300)
         img.background_color = Color("white")
         img.alpha_channel = "remove"
@@ -115,6 +126,10 @@ class Extractor(object):
         Input : Object
         Output : Image
         """
+        # two lines are added to find the correct path of the file
+        if file_name.lower().startswith('./'):
+            file_name = os.path.join(ROOT_DIR, file_name)         
+        
         _, _, _, img, _ = self._get_token_coordinates(draw_img=True)
         if save_img:
             self.save_image(img, file_name)
@@ -127,6 +142,10 @@ class Extractor(object):
         Input : Object
         Output : None
         """
+        # two lines are added to find the correct path of the file
+        if file_name.lower().startswith('./'):
+            file_name = os.path.join(ROOT_DIR, file_name)         
+        
         if file_name:
             if file_name.lower().endswith(('.jpg', '.jpeg')):
                 img.save(filename=file_name)
