@@ -11,7 +11,7 @@ This project uses SLICE algorithm to extract information from a text-based PDF p
 
 SLICE algorithm is a unique computer vision algorithm that simultaneously uses textual, visual and layout information to segment several datapoints into a tabular structure. It uses pixels to determine ideal page divisions and map the entire page into several rectangular subsections. Once mapped, each token becomes a member of a subsection that it intersects. 
 
-It was originally designed and developed within Statistics Canada. OSFI contributed to this fork by:
+It was originally designed and developed within [Statistics Canada](https://github.com/StatCan/SLICEmyPDF). [OSFI](https://www.osfi-bsif.gc.ca/) contributed to this fork by:
 1. Removed unnecessary dependencies and version requirements in environment.yaml
 2. Fixed incorrect file path issue in slicemypdf.py
 3. Updated settings.yaml to make it work in Windows.
@@ -22,18 +22,18 @@ The following Setup Instructions work with Windows.
 
 ### Setup Instructions
 
-1. Create the environment. 
+#### 1. Create the environment. 
 
 There are two ways to do so. 
 
-One method is to run the following commends in the Command prompt as Administrator 
+Option 1: One method is to run the following commends in the Command prompt as Administrator 
 
 ```
 conda env create -f environment.yml
 source activate conda-slicemypdf
 ```
 
-If you prefer to creating the environment and installing packages manually, then run the following commands in the Command prompt as Administrator:
+Option 2: If you prefer to creating the environment and installing packages manually, then run the following commands in the Command prompt as Administrator:
 
 ```
 conda create -n conda-slicemypdf_env python=3.10
@@ -57,15 +57,15 @@ Note 3: It's better to install packages one by one.
 
 In the second method, after finishing all these steps, copy all folders and files in the SLICEmyPDF/slicemypdf folder in this repo to your environment folder.
 
-2. Install Ghostscript
+#### 2. Install Ghostscript
 
-The binary release for Windows can be find here: https://ghostscript.com/releases/gsdnld.html
+The binary release for Windows can be find [here](https://ghostscript.com/releases/gsdnld.html)
 
-3. Install ImageMagick
+#### 3. Install ImageMagick
 
  The package wand is a Python binding of ImageMagick, so you have to install ImageMagick as well. 
  
- You can download the binary release from the following link: https://imagemagick.org/script/download.php#windows
+ You can download the binary release from this [link](https://imagemagick.org/script/download.php#windows)
  
  Note 1: Double check your Python runtime, and ensure the architectures match. A 32-bit Python runtime can not load a 64-bit dynamic library.
  
@@ -73,9 +73,9 @@ The binary release for Windows can be find here: https://ghostscript.com/release
  
  Note 3: After the installation, you have to set MAGICK_HOME environment variable to the path of ImageMagick (e.g. C:\Program Files\ImageMagick-7.1.0-Q16-HDRI).
 
-4. Install Poppler
+#### 4. Install Poppler
 
-The binary release of Poppler can be find here: https://github.com/oschwartz10612/poppler-windows/releases/ . Unzip the downloaded file, and obtain the path of ‘poppler-xx.xx.x/Library/bin’ directory. Add this path to the Windows environment variable PATH. Test it in Command promt: 
+The binary release of Poppler can be find [here](https://github.com/oschwartz10612/poppler-windows/releases/) . Unzip the downloaded file, and obtain the path of ‘poppler-xx.xx.x/Library/bin’ directory. Add this path to the Windows environment variable PATH. Test it in Command promt: 
 
 ```
 pdftotext
