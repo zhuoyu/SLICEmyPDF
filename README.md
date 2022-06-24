@@ -69,7 +69,7 @@ The binary release for Windows can be find [here](https://ghostscript.com/releas
  
  Note 1: Double check your Python runtime, and ensure the architectures match. A 32-bit Python runtime can not load a 64-bit dynamic library.
  
- Note 2: During the installation you have to check Install development headers and libraries for C and C++ to make Wand able to link to it.
+ Note 2: During the installation you have to check "Install development headers and libraries for C and C++" to make Wand able to link to it.
  
  Note 3: After the installation, you have to set MAGICK_HOME environment variable to the path of ImageMagick (e.g. C:\Program Files\ImageMagick-7.1.0-Q16-HDRI).
 
